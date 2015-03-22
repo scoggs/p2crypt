@@ -1,5 +1,5 @@
 # p2crypt
-C# p2p encrypted chat software
+C# open source p2p encrypted chat software
 
 ##### Goals:
 
