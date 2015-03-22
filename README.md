@@ -16,3 +16,4 @@ C# open source p2p encrypted chat software
 * Slack Apps (Desktop / Mobile): https://p2crypt.slack.com/apps
 * We'll be using google docs for docs and spreadsheets
 * Project Homepage: http://www.scoggs.net/p2c (temporary until we can get our own domain)
+* Iron out best method for google docs sharing (new account everyrone has access to?)
