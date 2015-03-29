@@ -21,7 +21,8 @@ namespace Network {
 	/// </summary>
 	public partial class MainWindow:Window {
 		// need this to decryp the message from our buddy.
-		P2Crypt.PublicProfile buddyProfile;	
+		// string is the user nick
+		Dictionary<string, P2Crypt.PublicProfile> publicProfileDict;
 		
 		P2Crypt.UserAccount userAccount;
 
@@ -43,6 +44,8 @@ namespace Network {
 			
 			// create a user account for the current user
 			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };	
+
+			publicProfileDict = new Dictionary<string,PublicProfile>();
 		}
 
 
@@ -59,6 +62,20 @@ namespace Network {
 				txtMessage.IsEnabled = false;
 			}
 		}
+
+
+
+		/// <summary>
+		/// This is how user will be able to connect to a destination ip.
+		/// Once a connection has been established user can start communicating.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnShakeHand_Click(object sender, RoutedEventArgs e) {
+
+		}
+
+
 
 
 
