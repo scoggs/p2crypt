@@ -69,15 +69,14 @@ namespace Network {
 
 		/// <summary>
 		/// This is how user will be able to connect to a destination ip.
-		/// Once a connection has been established user can start communicating.
+		/// Once a connection has been established user can start communicating with that ip address.
+		/// The ipaddress only need to connect once.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void btnShakeHand_Click(object sender, RoutedEventArgs e) {
 
 		}
-
-
 
 
 
