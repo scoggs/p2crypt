@@ -4,6 +4,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace P2CryptUiTest.ViewModels
 {
@@ -20,6 +21,19 @@ namespace P2CryptUiTest.ViewModels
 				if (value == _newMessage) return;
 				_newMessage = value;
 				OnPropertyChanged();
+			}
+		}
+
+		private ICommand _sendCommand;
+		public ICommand SendCommand
+		{
+			get
+			{
+				return _sendCommand ?? (_sendCommand = new RelayCommand<string>(o =>
+				{
+					SendMessage(NewMessage);
+					NewMessage = null;
+				}, o => !string.IsNullOrEmpty(NewMessage)));
 			}
 		}
 
@@ -47,10 +61,17 @@ namespace P2CryptUiTest.ViewModels
 			};
 		}
 
-
-		public void Send()
+		public void SendMessage(string message)
 		{
+			if (string.IsNullOrEmpty(message))
+				throw new ArgumentException("message");
 
+			Messages.Add(new Message
+			{
+				Content = message,
+				Timestamp = DateTime.Now,
+				UserName = "You"
+			});
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

@@ -20,7 +20,7 @@
 							<TextBlock Text="{Binding UserName}" Margin="0,0,5,0" FontWeight="Bold" />
 							<TextBlock Text="{Binding Timestamp}" />
 						</StackPanel>
-						<TextBlock Margin="0,5,0,0" Text="{Binding Content}" TextWrapping="Wrap" />
+						<TextBlock Margin="0,0,0,5" Text="{Binding Content}" TextWrapping="Wrap" />
 					</StackPanel>
 				</DataTemplate>
 			</ItemsControl.ItemTemplate>
@@ -34,7 +34,7 @@
 				<TextBlock Text="Enter message:" />
 				<TextBox Text="{Binding NewMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" />
 			</StackPanel>
-			<Button Grid.Column="1" Content="Send" Width="100" Height="23" VerticalAlignment="Bottom" />
+			<Button Grid.Column="1" Content="Send" Width="100" Height="23" VerticalAlignment="Bottom" Command="{Binding SendCommand}" />
 		</Grid>
 	</Grid>
 </controls:MetroWindow>
