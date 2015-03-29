@@ -4,7 +4,7 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:viewModels="clr-namespace:P2CryptUiTest.ViewModels"
         Title="Simple Ui Test" Height="350" Width="525" BorderThickness="1" BorderBrush="Black"
-		MinWidth="220" MinHeight="130">
+		MinWidth="220" MinHeight="160">
 	<Window.DataContext>
 		<viewModels:MainWindowViewModel />
 	</Window.DataContext>
@@ -13,19 +13,21 @@
 			<RowDefinition Height="*" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
-		<ItemsControl ItemsSource="{Binding Messages}">
-			<ItemsControl.ItemTemplate>
-				<DataTemplate>
-					<StackPanel>
-						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="{Binding UserName}" Margin="0,0,5,0" FontWeight="Bold" />
-							<TextBlock Text="{Binding Timestamp}" />
+		<ScrollViewer>
+			<ItemsControl ItemsSource="{Binding Messages}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<StackPanel>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="{Binding UserName}" Margin="0,0,5,0" FontWeight="Bold" />
+								<TextBlock Text="{Binding Timestamp}" />
+							</StackPanel>
+							<TextBlock Margin="0,0,0,5" Text="{Binding Content}" TextWrapping="Wrap" />
 						</StackPanel>
-						<TextBlock Margin="0,0,0,5" Text="{Binding Content}" TextWrapping="Wrap" />
-					</StackPanel>
-				</DataTemplate>
-			</ItemsControl.ItemTemplate>
-		</ItemsControl>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
 		<Grid Grid.Row="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
