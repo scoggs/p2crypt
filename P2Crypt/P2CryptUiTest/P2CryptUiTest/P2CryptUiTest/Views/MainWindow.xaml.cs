@@ -1,5 +1,7 @@
 ﻿
-namespace P2CryptUiTest
+using System.Windows;
+
+namespace P2CryptUiTest.Views
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
@@ -9,6 +11,12 @@ namespace P2CryptUiTest
 		public MainWindow()
 		{
 			InitializeComponent();
+			Loaded += OnLoaded;
+		}
+
+		private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
+		{
+			NewMessage.Focus();
 		}
 	}
 }
