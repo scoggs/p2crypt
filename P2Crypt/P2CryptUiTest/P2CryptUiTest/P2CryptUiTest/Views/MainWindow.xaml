@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:viewModels="clr-namespace:P2CryptUiTest.ViewModels"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        Title="Simple Ui Test" Height="350" Width="525" BorderThickness="1" BorderBrush="Black">
+        Title="Simple Ui Test" Height="350" Width="525" BorderThickness="1" BorderBrush="Black"
+		MinWidth="220" MinHeight="130">
 	<Window.DataContext>
 		<viewModels:MainWindowViewModel />
 	</Window.DataContext>
