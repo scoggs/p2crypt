@@ -1,8 +1,18 @@
 ﻿<Window x:Class="Network.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Network Test" Height="350" Width="575">
+	<Grid Margin="0,0,2,0">
+		<TextBox x:Name="userNiceTxtBox" HorizontalAlignment="Left" Height="23" Margin="73,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" Cursor="IBeam" ToolTip="Enter your user name."/>
+		<Label Content="User Nick:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Cursor="None" IsEnabled="False" Foreground="Black"/>
+		<ComboBox x:Name="ipFirstByte" HorizontalAlignment="Left" Margin="339,13,0,0" VerticalAlignment="Top" Width="44" MaxDropDownHeight="255"/>
+		<Label Content="." HorizontalAlignment="Left" Margin="382,18,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+		<ComboBox x:Name="ipSecondByte" HorizontalAlignment="Left" Margin="395,13,0,0" VerticalAlignment="Top" Width="44" MaxDropDownHeight="255"/>
+		<Label Content="." HorizontalAlignment="Left" Margin="438,18,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+		<ComboBox x:Name="ipThirdByte" HorizontalAlignment="Left" Margin="451,13,0,0" VerticalAlignment="Top" Width="44" MaxDropDownHeight="255"/>
+		<Label Content="." HorizontalAlignment="Left" Margin="494,18,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+		<ComboBox x:Name="ipFourthByte" HorizontalAlignment="Left" Margin="506,13,0,0" VerticalAlignment="Top" Width="44" MaxDropDownHeight="255"/>
+		<Label Content="Server IP:" HorizontalAlignment="Left" Margin="277,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.615"/>
+
+	</Grid>
 </Window>
