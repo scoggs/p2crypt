@@ -21,9 +21,8 @@ namespace Network {
 	/// </summary>
 	public partial class MainWindow:Window {
 		
-		//P2Crypt.CryptoUtils cryptoUtils;
+		
 		P2Crypt.PublicProfile publicProfile;
-		//P2Crypt.StandardAlgorithms standardAlgorithms;
 		P2Crypt.UserAccount userAccount;
 
 		public MainWindow() {
@@ -41,8 +40,12 @@ namespace Network {
 			ipSecondByte.SelectedIndex = 0;
 			ipThirdByte.SelectedIndex = 0;
 			ipFourthByte.SelectedIndex = 0;
-
-				
+			
+			// create a user account for the current user
+			userAccount = new UserAccount(){ UserNick = userNiceTxtBox.Text };
+			
+			// create a public profile 
+			publicProfile = userAccount.PublicProfile;
 		}
 
 
