@@ -20,9 +20,9 @@ namespace Network {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow:Window {
+		// need this to decryp the message from our buddy.
+		P2Crypt.PublicProfile buddyProfile;	
 		
-		
-		P2Crypt.PublicProfile publicProfile;
 		P2Crypt.UserAccount userAccount;
 
 		public MainWindow() {
@@ -42,11 +42,25 @@ namespace Network {
 			ipFourthByte.SelectedIndex = 0;
 			
 			// create a user account for the current user
-			userAccount = new UserAccount(){ UserNick = userNiceTxtBox.Text };
-			
-			// create a public profile 
-			publicProfile = userAccount.PublicProfile;
+			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };	
 		}
+
+
+		private void userNickTxtBox_TextChanged(object sender, TextChangedEventArgs e) {
+			// The user have to enter in their user name before they can do anything
+			if( !(String.IsNullOrEmpty(userNickTxtBox.Text) || String.IsNullOrWhiteSpace(userNickTxtBox.Text)) ){
+				btnSend.IsEnabled = true;
+				btnShakeHand.IsEnabled = true;
+				txtMessage.IsEnabled = true;
+			}
+			else{
+				btnSend.IsEnabled = false;
+				btnShakeHand.IsEnabled = false;
+				txtMessage.IsEnabled = false;
+			}
+		}
+
+
 
 
 	}
