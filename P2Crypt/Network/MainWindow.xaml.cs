@@ -46,6 +46,8 @@ namespace Network {
 			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };	
 
 			publicProfileDict = new Dictionary<string,PublicProfile>();
+
+			txtChatWindow.IsReadOnly = true;
 		}
 
 
