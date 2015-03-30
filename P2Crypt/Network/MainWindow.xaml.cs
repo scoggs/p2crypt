@@ -57,15 +57,19 @@ namespace Network {
 			ipThirdByte.SelectedIndex = 0;
 			ipFourthByte.SelectedIndex = 0;
 			
+			txtChatWindow.IsReadOnly = true;
+
+
+			#region server
 			tokenSource = new CancellationTokenSource();
 
 			// create a user account for the current user
 			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };				
 			
-			// feed server the data it want's
-			Server.Initialization(userAccount, tokenSource);
-			
-			txtChatWindow.IsReadOnly = true;
+			// feed server the data it want's and start it
+			Server.Initialization(userAccount, tokenSource, this);
+			Server.Instance.Start();
+			#endregion
 		}
 
 
@@ -94,6 +98,10 @@ namespace Network {
 		/// <param name="e"></param>
 		private void btnShakeHand_Click(object sender, RoutedEventArgs e) {
 
+		}
+
+		private void btnDisconnect_Click(object sender, RoutedEventArgs e) {
+			tokenSource.Cancel();
 		}
 
 

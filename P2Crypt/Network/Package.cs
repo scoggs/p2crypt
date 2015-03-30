@@ -12,14 +12,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using P2Crypt;
 
 namespace Network {
 	public class Package{
-		public string userNick;
+		public PublicProfile user;
 		public byte[] data;
 
-		public Package(string userNick, byte[] data){
-			this.userNick = userNick;
+		public Package(PublicProfile user, byte[] data){
+			this.user = user;
 			this.data = data;
 		}
 	}

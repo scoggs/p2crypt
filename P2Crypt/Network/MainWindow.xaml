@@ -23,6 +23,7 @@
 		<Label Content="Friends:" HorizontalAlignment="Left" Margin="568,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.474,0.538"/>
 		<TextBox x:Name="txtPort" HorizontalAlignment="Left" Height="23" Margin="339,43,0,0" TextWrapping="Wrap" Text="12345" VerticalAlignment="Top" Width="100"/>
 		<Label Content="Port:" HorizontalAlignment="Left" Margin="304,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.553,-0.615"/>
+		<Button x:Name="btnDisconnect" Content="DISCONNECT SEVER" HorizontalAlignment="Left" Margin="114,42,0,0" VerticalAlignment="Top" Width="131" Click="btnDisconnect_Click"/>
 
 	</Grid>
 </Window>
