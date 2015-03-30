@@ -61,7 +61,7 @@ namespace UiTest.ViewModels
 			};
 		}
 
-	    private void SendMessage(string message)
+		private void SendMessage(string message)
 		{
 			if (string.IsNullOrEmpty(message))
 				throw new ArgumentException("message");
@@ -69,7 +69,7 @@ namespace UiTest.ViewModels
 			Messages.Add(new Message
 			{
 				Content = message,
-                Timestamp = DateTime.UtcNow,
+				Timestamp = DateTime.UtcNow,
 				UserName = "You"
 			});
 		}

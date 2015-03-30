@@ -5,43 +5,43 @@
         xmlns:viewModels="clr-namespace:UiTest.ViewModels"
         Title="Simple Ui Test" Height="350" Width="525" BorderThickness="1" BorderBrush="Black"
 		MinWidth="450" MinHeight="450">
-    <Window.DataContext>
-        <viewModels:MainWindowViewModel />
-    </Window.DataContext>
-    <Grid Margin="5">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <ScrollViewer>
-            <ItemsControl ItemsSource="{Binding Messages}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding UserName}" Margin="0,0,5,0" FontWeight="Bold" />
-                                <TextBlock Text="{Binding Timestamp}" />
-                            </StackPanel>
-                            <TextBlock Margin="0,0,0,5" Text="{Binding Content}" TextWrapping="Wrap" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <StackPanel>
-                <Rectangle x:Name="Seperator" Height="2" Fill="#FFB0B0B0" Margin="0,0,0,10" />
-                <TextBox x:Name="NewMessage" Text="{Binding NewMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" BorderBrush="#FF595959">
-                    <TextBox.InputBindings>
-                        <KeyBinding Command="{Binding SendCommand}" Key="Enter" />
-                    </TextBox.InputBindings>
-                </TextBox>
-            </StackPanel>
-            <Button Grid.Column="1" Content="Send" Width="100" Height="26" VerticalAlignment="Bottom" Command="{Binding SendCommand}" Style="{StaticResource AccentedSquareButtonStyle}" BorderThickness="1" FontWeight="Normal" FontFamily="Roboto Light" FontSize="12" />
-        </Grid>
-    </Grid>
+	<Window.DataContext>
+		<viewModels:MainWindowViewModel />
+	</Window.DataContext>
+	<Grid Margin="5">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<ScrollViewer>
+			<ItemsControl ItemsSource="{Binding Messages}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<StackPanel>
+							<StackPanel Orientation="Horizontal">
+								<TextBlock Text="{Binding UserName}" Margin="0,0,5,0" FontWeight="Bold" />
+								<TextBlock Text="{Binding Timestamp}" />
+							</StackPanel>
+							<TextBlock Margin="0,0,0,5" Text="{Binding Content}" TextWrapping="Wrap" />
+						</StackPanel>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<StackPanel>
+				<Rectangle x:Name="Seperator" Height="2" Fill="#FFB0B0B0" Margin="0,0,0,10" />
+				<TextBox x:Name="NewMessage" Text="{Binding NewMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0" BorderBrush="#FF595959">
+					<TextBox.InputBindings>
+						<KeyBinding Command="{Binding SendCommand}" Key="Enter" />
+					</TextBox.InputBindings>
+				</TextBox>
+			</StackPanel>
+			<Button Grid.Column="1" Content="Send" Width="100" Height="26" VerticalAlignment="Bottom" Command="{Binding SendCommand}" Style="{StaticResource AccentedSquareButtonStyle}" BorderThickness="1" FontWeight="Normal" FontFamily="Roboto Light" FontSize="12" />
+		</Grid>
+	</Grid>
 </controls:MetroWindow>
