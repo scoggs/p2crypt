@@ -8,7 +8,9 @@ using UiTest.Properties;
 
 namespace UiTest.ViewModels
 {
-	public sealed class MainWindowViewModel : INotifyPropertyChanged
+    using System.Globalization;
+
+    public sealed class MainWindowViewModel : INotifyPropertyChanged
 	{
 		private string _newMessage;
 		private ObservableCollection<Message> _messages;
@@ -55,7 +57,7 @@ namespace UiTest.ViewModels
 				new Message
 				{
 					Content = "Test from viewmodel",
-					Timestamp = DateTime.UtcNow,
+					Timestamp = DateTime.Now.ToShortDateString() + " - " + DateTime.Now.ToShortTimeString(),
 					UserName = "ViewModel"
 				}
 			};
@@ -63,13 +65,16 @@ namespace UiTest.ViewModels
 
 		private void SendMessage(string message)
 		{
-			if (string.IsNullOrEmpty(message))
-				throw new ArgumentException("message");
+		    if (string.IsNullOrEmpty(message))
+		    {
+		        throw new ArgumentException("message");
+		    }
 
-			Messages.Add(new Message
+
+		    Messages.Add(new Message
 			{
 				Content = message,
-				Timestamp = DateTime.UtcNow,
+                Timestamp = DateTime.Now.ToShortDateString() + " - " + DateTime.Now.ToShortTimeString(),
 				UserName = "You"
 			});
 		}

@@ -34,8 +34,8 @@ namespace UiTest
 			if (execute == null)
 				throw new ArgumentNullException("execute");
 
-			_execute = execute;
-			_canExecute = canExecute;
+		    this._execute = execute;
+		    this._canExecute = canExecute;
 		}
 
 		#endregion
@@ -51,7 +51,7 @@ namespace UiTest
 		///</returns>
 		public bool CanExecute(object parameter)
 		{
-			return _canExecute == null || _canExecute((T)parameter);
+			return this._canExecute == null || this._canExecute((T)parameter);
 		}
 
 		///<summary>
@@ -69,7 +69,7 @@ namespace UiTest
 		///<param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
 		public void Execute(object parameter)
 		{
-			_execute((T)parameter);
+		    this._execute((T)parameter);
 		}
 
 		#endregion

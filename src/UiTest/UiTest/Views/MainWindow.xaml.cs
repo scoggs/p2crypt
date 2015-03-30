@@ -10,13 +10,13 @@ namespace UiTest.Views
 	{
 		public MainWindow()
 		{
-			InitializeComponent();
-			Loaded += OnLoaded;
+		    this.InitializeComponent();
+		    this.Loaded += this.OnLoaded;
 		}
 
 		private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
 		{
-			NewMessage.Focus();
+		    this.NewMessage.Focus();
 		}
 	}
 }

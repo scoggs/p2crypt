@@ -4,7 +4,7 @@ namespace UiTest.Models
 {
 	public class Message
 	{
-		public DateTime Timestamp { get; set; }
+		public string Timestamp { get; set; }
 
 		public string Content { get; set; }
 
