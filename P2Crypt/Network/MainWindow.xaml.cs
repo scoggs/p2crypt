@@ -31,14 +31,10 @@ namespace Network {
 	/// </summary>
 	public partial class MainWindow:Window {
 
-		#region Fields
-		// need this to decryp the message from our buddy.
-		// string is the user nick
-		Dictionary<string, P2Crypt.PublicProfile> publicProfileDict;
-		
+		#region Fields	
 		P2Crypt.UserAccount userAccount;
 
-		readonly int defaultPort = 12345;
+		public static readonly int defaultPort = 12345;				// not the best way but it'll do for now. This number is access within Server class
 		#endregion
 
 		public MainWindow() {
@@ -58,9 +54,7 @@ namespace Network {
 			ipFourthByte.SelectedIndex = 0;
 			
 			// create a user account for the current user
-			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };	
-
-			publicProfileDict = new Dictionary<string,PublicProfile>();
+			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };				
 
 			txtChatWindow.IsReadOnly = true;
 		}

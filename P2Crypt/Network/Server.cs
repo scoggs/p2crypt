@@ -17,6 +17,8 @@ using System.Net.Sockets;
 using System.Threading;
 using System.Net;
 
+using P2Crypt;
+
 namespace Network{
 	/// <summary>
 	/// Control and handles incoming/outgoing packet. 
@@ -24,29 +26,48 @@ namespace Network{
 	public sealed class Server {
 
 		#region Fields
+		// to make sure the Server received all the important data it need before it does anything
+		static bool isInitialized = false;
+
 		// singleton 
 		static Server instance = null;
 		static readonly object myLock = new object();
 
 		Socket socket;
+
+		// need this to decryp the message from our buddy.
+		// string is the user nick
+		Dictionary<string, P2Crypt.PublicProfile> publicProfileDict;
+
+		static UserAccount userAccount;
 		#endregion
 
+		#region Important 
+		Server(){
+			publicProfileDict = new Dictionary<string,PublicProfile>();
+		}
 
-		Server(){}
 
-		#region Properties
-		public static Server Instance{
-			get{
+		public static void Initialization(UserAccount user){
+			if(!isInitialized){
+				userAccount = user;
+
 				lock(myLock){
-					if(instance == null)
-						instance = new Server();
-					return instance;
+					instance = new Server();
 				}
+
+				isInitialized = true;
 			}
 		}
 		#endregion
 
+		#region Properties
+		public static Server Instance{ get{ return instance; } }
+		#endregion
 
+
+
+		#region Methods
 		/// <summary>
 		/// Keep running until the parent thread send's a cancellation notice
 		/// </summary>
@@ -61,6 +82,8 @@ namespace Network{
 
 			}
 		}
+		#endregion
+
 
 	}
 }
