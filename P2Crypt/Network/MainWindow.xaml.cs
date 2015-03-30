@@ -55,6 +55,9 @@ namespace Network {
 			
 			// create a user account for the current user
 			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };				
+			
+			// feed server the data it want's
+			Server.Initialization(userAccount);
 
 			txtChatWindow.IsReadOnly = true;
 		}

@@ -39,6 +39,9 @@ namespace Network{
 		// string is the user nick
 		Dictionary<string, P2Crypt.PublicProfile> publicProfileDict;
 
+		// store each connection socket information, string is the user nick
+		Dictionary<string, Socket> socketDict;
+
 		static UserAccount userAccount;
 		#endregion
 
