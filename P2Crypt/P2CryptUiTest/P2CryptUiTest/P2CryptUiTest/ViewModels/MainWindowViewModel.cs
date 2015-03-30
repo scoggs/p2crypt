@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace P2CryptUiTest.ViewModels
 {
-	public class MainWindowViewModel : INotifyPropertyChanged
+	public sealed class MainWindowViewModel : INotifyPropertyChanged
 	{
 		private string _newMessage;
 		private ObservableCollection<Message> _messages;
@@ -55,13 +55,13 @@ namespace P2CryptUiTest.ViewModels
 				new Message
 				{
 					Content = "Test from viewmodel",
-					Timestamp = DateTime.Now,
+					Timestamp = DateTime.UtcNow,
 					UserName = "ViewModel"
 				}
 			};
 		}
 
-		public void SendMessage(string message)
+	    private void SendMessage(string message)
 		{
 			if (string.IsNullOrEmpty(message))
 				throw new ArgumentException("message");
@@ -69,7 +69,7 @@ namespace P2CryptUiTest.ViewModels
 			Messages.Add(new Message
 			{
 				Content = message,
-				Timestamp = DateTime.Now,
+                Timestamp = DateTime.UtcNow,
 				UserName = "You"
 			});
 		}
@@ -77,7 +77,7 @@ namespace P2CryptUiTest.ViewModels
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		[NotifyPropertyChangedInvocator]
-		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+		private void OnPropertyChanged([CallerMemberName] string propertyName = null)
 		{
 			PropertyChangedEventHandler handler = PropertyChanged;
 			if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
