@@ -20,11 +20,16 @@ namespace Network {
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow:Window {
+
+		#region Fields
 		// need this to decryp the message from our buddy.
 		// string is the user nick
 		Dictionary<string, P2Crypt.PublicProfile> publicProfileDict;
 		
 		P2Crypt.UserAccount userAccount;
+
+		readonly int defaultPort = 12345;
+		#endregion
 
 		public MainWindow() {
 			InitializeComponent();
