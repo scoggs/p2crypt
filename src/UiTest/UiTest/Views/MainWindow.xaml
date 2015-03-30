@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:viewModels="clr-namespace:UiTest.ViewModels"
-        Title="Simple Ui Test" Height="350" Width="525" BorderThickness="1" BorderBrush="Black"
-		MinWidth="450" MinHeight="450">
+        Title="Conversation Name" Height="500" Width="500" BorderThickness="1" 
+		MinWidth="300" MinHeight="300" Icon="/UiTest;component/Resources/Images/Logo.png" WindowStartupLocation="CenterScreen" AllowDrop="True" FontFamily="Segoe WP" FontSize="14">
     <Window.DataContext>
         <viewModels:MainWindowViewModel />
     </Window.DataContext>
@@ -33,19 +33,19 @@
                 <ColumnDefinition />
                 <ColumnDefinition Width="Auto" MinWidth="25" />
             </Grid.ColumnDefinitions>
-            <StackPanel>
-                <Rectangle x:Name="Seperator" Height="1" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Margin="0,0,-27,5" >
+            <StackPanel Margin="0,6,0,-6">
+                <Rectangle x:Name="Seperator" Height="1" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Margin="0,0,-27,0" >
                     <Rectangle.Effect>
                         <BlurEffect Radius="2"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <TextBox x:Name="NewMessage" Text="{Binding NewMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,-27,0" BorderBrush="#FF595959" Height="11">
+                <TextBox x:Name="NewMessage" Text="{Binding NewMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,10,-27,0" BorderBrush="#FF595959" Height="11">
                     <TextBox.InputBindings>
                         <KeyBinding Command="{Binding SendCommand}" Key="Enter" />
                     </TextBox.InputBindings>
                 </TextBox>
             </StackPanel>
-            <Button Grid.Column="1" Height="20" VerticalAlignment="Center" Command="{Binding SendCommand}"  BorderThickness="0" FontWeight="Normal" FontFamily="Roboto Light" FontSize="12" Margin="0,10,5,8" HorizontalAlignment="Center"  >
+            <Button Grid.Column="1" Height="20" VerticalAlignment="Center" Command="{Binding SendCommand}"  BorderThickness="0" FontWeight="Normal" FontFamily="Roboto Light" FontSize="12" Margin="0,22,5,0" HorizontalAlignment="Center"  >
                 <Button.Background>
                     <ImageBrush ImageSource="/UiTest;component/Resources/Images/Send_Button.png"/>
                 </Button.Background>

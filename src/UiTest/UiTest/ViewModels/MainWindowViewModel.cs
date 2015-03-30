@@ -8,7 +8,8 @@ using UiTest.Properties;
 
 namespace UiTest.ViewModels
 {
-    using System.Globalization;
+
+    //todo: Implement drag and drop of text files.
 
     public sealed class MainWindowViewModel : INotifyPropertyChanged
 	{
