@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Threading;
+using System.Net;
 
 namespace Network{
 	/// <summary>
@@ -43,7 +44,7 @@ namespace Network{
 		public void Run(CancellationToken cancelToken){
 			socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
-			socket.Bind(
+			
 			
 			while(!cancelToken.IsCancellationRequested){
 				
