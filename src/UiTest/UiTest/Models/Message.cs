@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace P2CryptUiTest.Models
+namespace UiTest.Models
 {
 	public class Message
 	{

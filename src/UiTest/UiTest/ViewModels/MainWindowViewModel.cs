@@ -1,12 +1,12 @@
-﻿using P2CryptUiTest.Annotations;
-using P2CryptUiTest.Models;
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using UiTest.Models;
+using UiTest.Properties;
 
-namespace P2CryptUiTest.ViewModels
+namespace UiTest.ViewModels
 {
 	public sealed class MainWindowViewModel : INotifyPropertyChanged
 	{

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace P2CryptUiTest
+namespace UiTest
 {
 	public class RelayCommand<T> : ICommand
 	{

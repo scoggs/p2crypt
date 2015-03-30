@@ -1,8 +1,8 @@
-﻿<controls:MetroWindow x:Class="P2CryptUiTest.Views.MainWindow"
+﻿<controls:MetroWindow x:Class="UiTest.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:viewModels="clr-namespace:P2CryptUiTest.ViewModels"
+        xmlns:viewModels="clr-namespace:UiTest.ViewModels"
         Title="Simple Ui Test" Height="350" Width="525" BorderThickness="1" BorderBrush="Black"
 		MinWidth="450" MinHeight="450">
     <Window.DataContext>

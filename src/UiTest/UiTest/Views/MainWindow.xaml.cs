@@ -1,7 +1,7 @@
 ﻿
 using System.Windows;
 
-namespace P2CryptUiTest.Views
+namespace UiTest.Views
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
