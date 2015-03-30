@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+ * NOTE:
+ *		- Need to make the port number resided in a configuration file. So this class can query the file
+ *				for specified port from advance user.
+ * 
+ * 
+ * 
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

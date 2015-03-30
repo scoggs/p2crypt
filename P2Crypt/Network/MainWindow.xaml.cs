@@ -1,4 +1,14 @@
-﻿using System;
+﻿/**
+ * NOTE:
+ *			- What you see on the GUI are the most important parts that are needed.
+ *			- Suggestion: create a configurable setting for advance user to change the port number. 
+ *						  The port number is access by the Server Class before it starts up. 
+ * 
+ *  
+ *  
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
