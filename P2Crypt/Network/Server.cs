@@ -43,17 +43,23 @@ namespace Network{
 		Dictionary<string, Socket> socketDict;
 
 		static UserAccount userAccount;
+
+		// so Server can stop gracefully when user exit the application.
+		static CancellationTokenSource token;
 		#endregion
 
 		#region Important 
 		Server(){
 			publicProfileDict = new Dictionary<string,PublicProfile>();
+			socketDict = new Dictionary<string,Socket>();
 		}
 
 
-		public static void Initialization(UserAccount user){
+		public static void Initialization(UserAccount user, CancellationTokenSource cToken){
 			if(!isInitialized){
 				userAccount = user;
+
+				token = cToken;
 
 				lock(myLock){
 					instance = new Server();

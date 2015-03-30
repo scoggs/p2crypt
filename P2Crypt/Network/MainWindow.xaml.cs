@@ -4,7 +4,8 @@
  *			- Suggestion: create a configurable setting for advance user to change the port number. 
  *						  The port number is access by the Server Class before it starts up. 
  * 
- *  
+ *			- I don't know how to access the delegate that is called when the window close so this code need to run when the window is closing:
+ *					tokenSource.Cancel() 
  *  
  */
 
@@ -24,6 +25,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using P2Crypt;
+using System.Threading;
 
 namespace Network {
 	/// <summary>
@@ -35,8 +37,10 @@ namespace Network {
 		P2Crypt.UserAccount userAccount;
 
 		public static readonly int defaultPort = 12345;				// not the best way but it'll do for now. This number is access within Server class
+		
+		CancellationTokenSource tokenSource;						// to stop the Server gracefully if user x out of the app.
 		#endregion
-
+		
 		public MainWindow() {
 			InitializeComponent();
 
@@ -53,12 +57,14 @@ namespace Network {
 			ipThirdByte.SelectedIndex = 0;
 			ipFourthByte.SelectedIndex = 0;
 			
+			tokenSource = new CancellationTokenSource();
+
 			// create a user account for the current user
 			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };				
 			
 			// feed server the data it want's
-			Server.Initialization(userAccount);
-
+			Server.Initialization(userAccount, tokenSource);
+			
 			txtChatWindow.IsReadOnly = true;
 		}
 
