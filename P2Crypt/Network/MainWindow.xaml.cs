@@ -119,5 +119,16 @@ namespace Network {
 			btnStart.IsEnabled = false;
 		}
 
+		private void btnSend_Click_1(object sender, RoutedEventArgs e) {
+			if(String.IsNullOrEmpty(txtMessage.Text) || String.IsNullOrWhiteSpace(txtMessage.Text))
+				return;
+
+			Task.Factory.StartNew(()=>{ Server.Instance.SendMessage(txtMessage.Text); });
+		}
+
+		
+
+		
+
 	}
 }

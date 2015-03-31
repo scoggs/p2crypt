@@ -16,11 +16,12 @@
 		<TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="35" Margin="10,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="540" IsEnabled="False"/>
 		<Label Content="Message:" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top"/>
 		<Button x:Name="btnShakeHand" Content="Shake Hand" HorizontalAlignment="Left" Margin="451,44,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" Click="btnShakeHand_Click"/>
-		<Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" RenderTransformOrigin="0.453,2.227"/>
+		<Button x:Name="btnSend" Content="Send" HorizontalAlignment="Left" Margin="10,442,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" RenderTransformOrigin="0.453,2.227" Click="btnSend_Click_1"/>
 		<TextBox x:Name="txtChatWindow" HorizontalAlignment="Left" Height="273" Margin="10,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="540"/>
 		<Label Content="Chat Window:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" IsEnabled="False"/>
 		<TextBox x:Name="txtFriendsList" HorizontalAlignment="Left" Height="425" Margin="568,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
 		<Label Content="Friends:" HorizontalAlignment="Left" Margin="568,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.474,0.538"/>
+		<TextBox x:Name="txtPort" HorizontalAlignment="Left" Height="23" Margin="339,43,0,0" TextWrapping="Wrap" Text="12345" VerticalAlignment="Top" Width="100"/>
 		<Button x:Name="btnDisconnect" Content="DISCONNECT SEVER" HorizontalAlignment="Left" Margin="99,42,0,0" VerticalAlignment="Top" Width="146" Click="btnDisconnect_Click" Height="24" IsEnabled="False"/>
 		<Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="75" Height="22" IsEnabled="False" Click="Button_Click"/>
 

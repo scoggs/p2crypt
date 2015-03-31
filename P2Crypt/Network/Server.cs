@@ -5,7 +5,8 @@
  * 
  *      - From within NewMessage; In the future maybe use the Socket parameter for loggin purpose?
  * 
- * 
+ *		- Need to implement an algorithm that removed disconnected user from our dictionary of socket
+ *		  The best place for this algorithm could be in the SendMessage method
  */
 
 
@@ -262,6 +263,34 @@ namespace Network{
 			}
 		}
 
+
+		public void SendMessage(string message){
+			Package deliveryPackage = new Package(userAccount.PublicProfile, Encoding.UTF8.GetBytes(message));
+			BinaryFormatter bf = new BinaryFormatter();
+			foreach(var pair in socketDict){
+				try{
+					using(MemoryStream ms = new MemoryStream()){
+						bf.Serialize(ms, deliveryPackage);
+						ms.Seek(0, SeekOrigin.Begin);
+						pair.Value.Send(ms.ToArray(), 0, (int)ms.Length, SocketFlags.None);
+					}
+				}
+				catch(Exception ex) {
+#region//// DEBUG
+					Task.Factory.StartNew(()=>{ 
+						MessageBox.Show("EXCEPTION IN Server.SendMessage" + Environment.NewLine +
+										"Message: " + Environment.NewLine +
+										ex.Message);
+					});
+#endregion
+				}
+			}
+
+			
+			mainWindowGUI.txtMessage.InvokedIfRequired(()=>{
+				mainWindowGUI.txtMessage.Clear();
+			});
+		}
 
 		#endregion
 
