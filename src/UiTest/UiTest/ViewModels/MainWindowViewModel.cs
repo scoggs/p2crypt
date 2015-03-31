@@ -9,7 +9,6 @@ using UiTest.Properties;
 namespace UiTest.ViewModels
 {
 
-    //todo: Implement drag and drop of text files.
 
     public sealed class MainWindowViewModel : INotifyPropertyChanged
 	{
@@ -53,6 +52,7 @@ namespace UiTest.ViewModels
 
 		public MainWindowViewModel()
 		{
+
 			Messages = new ObservableCollection<Message>
 			{
 				new Message

@@ -3,7 +3,10 @@ using System.Windows;
 
 namespace UiTest.Views
 {
-	/// <summary>
+    using System;
+    using System.Windows.Input;
+
+    /// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow
@@ -18,5 +21,6 @@ namespace UiTest.Views
 		{
 		    this.NewMessage.Focus();
 		}
+
 	}
 }
