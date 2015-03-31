@@ -9,6 +9,8 @@
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable InconsistentNaming
 
+    //shh
+
 namespace UiTest.Properties
 {
   /// <summary>
