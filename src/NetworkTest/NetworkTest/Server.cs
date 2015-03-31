@@ -109,8 +109,6 @@ namespace NetworkTest
 
 			try
 			{
-				socketListener.LingerState = new LingerOption(false, 0);
-				socketListener.NoDelay = true;
 				socketListener.Bind(new IPEndPoint(IPAddress.Any, mainWindowGUI.defaultPort));
 				socketListener.Listen(maxConnection);
 
