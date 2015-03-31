@@ -11,6 +11,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace P2Crypt
 {
     //The public profile is something to share with other users. It is a way to identify and verify a user.
+	[Serializable]
     public class PublicProfile
     {
         [XmlElement]
@@ -30,6 +31,7 @@ namespace P2Crypt
         }
     }
 
+	[Serializable]
     public class UserAccount
     {
         private Guid _globalId;
