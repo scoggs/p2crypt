@@ -7,6 +7,11 @@
  * 
  *		- Need to implement an algorithm that removed disconnected user from our dictionary of socket
  *		  The best place for this algorithm could be in the SendMessage method
+ *		  
+ *		- Need if Server need to received a CancellationTokenSource
+ *		  Find a better way to stop the task that execute the Run method.
+ *		  
+ *      - need to 
  */
 
 
@@ -20,7 +25,6 @@ using System.Threading;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
-using System.Text;
 
 using P2Crypt;
 using System.IO;
@@ -61,6 +65,7 @@ namespace Network{
 		// to be able to communciate back to the GUI
 		static MainWindow mainWindowGUI;
 		
+		Task serverRunTask;
 		#endregion
 
 		#region Important 
@@ -105,7 +110,7 @@ namespace Network{
 				socketListener.Listen(maxConnection);
 
 				// send em off
-				Task.Factory.StartNew(()=>{ Run(); }, token.Token);
+				serverRunTask = Task.Factory.StartNew(()=>{ Run(); }, token.Token);
 			}
 			catch(SocketException se) {
 #region//// DEBUG
@@ -122,15 +127,9 @@ namespace Network{
 		/// Keep running until the parent thread send's a cancellation notice
 		/// </summary>
 		/// <param name="cancelToken"></param>
-		async void Run(){
+		void Run(){
 			while(!token.IsCancellationRequested){
-
-#region//// DEBUG
-				Task.Factory.StartNew(()=>{
-					MessageBox.Show("Server Running.");
-				});
-#endregion
-				Socket client = await socketListener.Accept_Async();
+				Socket client = socketListener.Accept();
 
 				ServiceClient sc = new ServiceClient(client, token);
 				Task t1 = Task.Factory.StartNew(()=>{ sc.Start(ProcessData); }, token.Token);
@@ -302,6 +301,21 @@ namespace Network{
 			mainWindowGUI.txtMessage.InvokedIfRequired(()=>{
 				mainWindowGUI.txtMessage.Clear();
 			});
+		}
+
+
+		// if MainWindow request disconnection this method is called
+		public void Disconnect(){
+#region//// DEBUG
+			Task.Factory.StartNew(()=>{
+				MessageBox.Show("Disconnection. Inside Server.Disconnect()." + Environment.NewLine +
+					            "Token: " + token.IsCancellationRequested);
+			});
+#endregion
+
+			if(token.IsCancellationRequested){
+				
+			}
 		}
 
 		#endregion

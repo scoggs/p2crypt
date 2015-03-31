@@ -11,7 +11,9 @@
  *			- I don't know how to access the delegate that is called when the window close so this code need to run when the window is closing:
  *					tokenSource.Cancel() 
  *  
- *			-
+ *			- Find a better way for user to disconnect the program from the net.
+ *			  Maybe instead of creating the Server class is a singleton just let 
+ *			  MainWindow create a Server object.
  */
 
 using System;
@@ -93,13 +95,27 @@ namespace Network {
 		}
 
 		private void btnDisconnect_Click(object sender, RoutedEventArgs e) {
-			tokenSource.Cancel();
+			
 
 #region//// DEBUG
 			Task.Factory.StartNew(()=>{
-				MessageBox.Show("CancellationTokenSource.IsCancellationRequested: " + tokenSource.IsCancellationRequested.ToString());
+				MessageBox.Show("Start of disonnecting: " + Environment.NewLine +
+					            "CancellationTokenSource.IsCancellationRequested: " + tokenSource.IsCancellationRequested.ToString());
 			});
-#endregion			
+#endregion
+			
+			tokenSource.Cancel();
+
+			Task.Factory.StartNew(()=>{
+				Server.Instance.Disconnect();
+			});
+
+#region//// DEBUG
+			Task.Factory.StartNew(()=>{
+				MessageBox.Show("After disonnecing: " + Environment.NewLine +
+					            "CancellationTokenSource.IsCancellationRequested: " + tokenSource.IsCancellationRequested.ToString());
+			});
+#endregion
 
 		}
 

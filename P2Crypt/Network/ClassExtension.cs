@@ -46,12 +46,7 @@ namespace Network{
 				if(!objectDisposedExcpetionThrown)
 					socket.Blocking = blockingState;
 			}
-		}
-
-		// custom asynchrous method that uses the awake/async
-		public static async Task<Socket> Accept_Async(this Socket socket){
-			return socket.Accept();			
-		}
+		}		
 
 	}
 }
