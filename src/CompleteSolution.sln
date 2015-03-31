@@ -18,9 +18,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2Crypt.Tests", "P2Crypt\P2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkTest", "NetworkTest\NetworkTest\NetworkTest.csproj", "{93DBD9F2-F935-4532-8581-F9A0FE33989D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCore", "P2CCore\P2CCore.csproj", "{DBE51873-F540-4852-9B2A-8186BC7BF50E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCore", "P2CCore\P2CCore\P2CCore.csproj", "{DBE51873-F540-4852-9B2A-8186BC7BF50E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCore.Tests", "P2CCore.Tests\P2CCore.Tests.csproj", "{08139889-8562-435B-8DA5-4A04D4C6DAD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "\P2CCore.Tests", "P2CCore\P2CCore.Tests\P2CCore.Tests.csproj", "{08139889-8562-435B-8DA5-4A04D4C6DAD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
