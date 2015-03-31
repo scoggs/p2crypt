@@ -1,5 +1,4 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
 
 namespace UiTest.Views
 {
@@ -8,15 +7,23 @@ namespace UiTest.Views
 	/// </summary>
 	public partial class MainWindow
 	{
+		#region Constructors
+
 		public MainWindow()
 		{
-		    this.InitializeComponent();
-		    this.Loaded += this.OnLoaded;
+			this.InitializeComponent();
+			this.Loaded += this.OnLoaded;
 		}
+
+		#endregion Constructors
+
+		#region Methods
 
 		private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
 		{
-		    this.NewMessage.Focus();
+			this.NewMessage.Focus();
 		}
+
+		#endregion Methods
 	}
 }

@@ -1,56 +1,80 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 using System.Xml.Serialization;
+
 namespace EncryptionTests
 {
-    public class TestUtils
-    {
-        /// <summary>
-        /// Util class to handle temporary files. 
-        /// </summary>
-        public class TempFile : IDisposable
-        {
+	public class TestUtils
+	{
+		#region Nested Types
 
-            public string FilePath { get; private set; }
+		/// <summary>
+		/// Util class to handle temporary files. 
+		/// </summary>
+		public class TempFile : IDisposable
+		{
+			#region Constructors
 
-            public TempFile()
-            {
-                String pat = @"{0}\P2CryptTemp{1}.tmp";
-                int index = 1;
-                string folder = Path.GetTempPath();
-                folder = @".\TestTempFiles";
+			public TempFile()
+			{
+				String pat = @"{0}\P2CryptTemp{1}.tmp";
+				int index = 1;
+				string folder = Path.GetTempPath();
+				folder = @".\TestTempFiles";
 
-                while (File.Exists(FilePath = String.Format(pat, Path.GetTempPath(), index++))) ;
-            }
+				while (File.Exists(FilePath = String.Format(pat, Path.GetTempPath(), index++))) ;
+			}
 
-            public void Dispose()
-            {
-                if (File.Exists(FilePath))
-                {
-                    File.Delete(FilePath);
-                }
-            }
-        }
+			#endregion Constructors
 
-        [Serializable]
-        public class TestData
-        {
-            [XmlElement]
-            public string someData { get; set; }
+			#region Properties
 
-            public override bool Equals(object obj)
-            {
-                return obj is TestData? (obj as TestData).someData == someData:false;
-            }
+			public string FilePath { get; private set; }
 
-            public override int GetHashCode()
-            {
-                return someData.GetHashCode();
-            }
-        }
-    }
+			#endregion Properties
+
+			#region Methods
+
+			public void Dispose()
+			{
+				if (File.Exists(FilePath))
+				{
+					File.Delete(FilePath);
+				}
+			}
+
+			#endregion Methods
+		}
+
+		[Serializable]
+		public class TestData
+		{
+			#region Properties
+
+			[XmlElement]
+			public string someData { get; set; }
+
+			#endregion Properties
+
+			#region Methods
+
+			public override bool Equals(object obj)
+			{
+				return obj is TestData? (obj as TestData).someData == someData:false;
+			}
+
+			public override int GetHashCode()
+			{
+				return someData.GetHashCode();
+			}
+
+			#endregion Methods
+		}
+
+		#endregion Nested Types
+	}
 }
