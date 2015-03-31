@@ -172,6 +172,12 @@ namespace Network{
 			catch(Exception){
 				// o well the program is exiting anyways
 			}
+
+#region//// DEBUG
+			Task.Factory.StartNew(()=>{
+				MessageBox.Show("Cancellation requsted. Inside Server.CleanUP(). Server exiting");
+			});
+#endregion
 		}
 
 
