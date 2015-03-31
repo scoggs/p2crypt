@@ -14,6 +14,8 @@
  *			- Find a better way for user to disconnect the program from the net.
  *			  Maybe instead of creating the Server class is a singleton just let 
  *			  MainWindow create a Server object.
+ *			  
+ *			- gracefully prevent user from connecting to localhost
  */
 
 using System;
