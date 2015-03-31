@@ -41,7 +41,7 @@ namespace Network {
 		#region Fields	
 		P2Crypt.UserAccount userAccount;
 
-		public static readonly int defaultPort = 12345;				// not the best way but it'll do for now. This number is access within Server class
+		public readonly int defaultPort = 12345;					// not the best way but it'll do for now. This number is access within Server class
 		
 		CancellationTokenSource tokenSource;						// to stop the Server gracefully if user x out of the app.
 		#endregion

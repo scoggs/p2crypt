@@ -100,7 +100,7 @@ namespace Network{
 			try{
 				socketListener.LingerState = new LingerOption(false, 0);
 				socketListener.NoDelay = true;
-				socketListener.Bind(new IPEndPoint(IPAddress.Any, MainWindow.defaultPort ));
+				socketListener.Bind(new IPEndPoint(IPAddress.Any, mainWindowGUI.defaultPort ));
 				socketListener.Listen(maxConnection);
 
 				// send em off
