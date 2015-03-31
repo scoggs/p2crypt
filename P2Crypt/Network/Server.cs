@@ -217,6 +217,12 @@ namespace Network{
 				mainWindowGUI.txtFriendsList.AppendText(messageData.user.UserNick + Environment.NewLine);
 			});
 		}
+
+
+		public void ShakeHand(String ip){
+			IP
+
+		}
 		#endregion
 
 

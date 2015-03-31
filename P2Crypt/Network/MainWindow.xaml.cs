@@ -3,13 +3,15 @@
  *			- it is very important that the user supplied a user name.
  * 
  *			- What you see on the GUI are the most important parts that are needed.
- *			
+ *				
+ *			  After creating Server.ShakeHand methods , the program need to use the same port number across the board.
  *			- Suggestion: create a configurable setting for advance user to change the port number. 
  *						  The port number is access by the Server Class before it starts up. 
  * 
  *			- I don't know how to access the delegate that is called when the window close so this code need to run when the window is closing:
  *					tokenSource.Cancel() 
  *  
+ *			-
  */
 
 using System;
@@ -84,8 +86,10 @@ namespace Network {
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void btnShakeHand_Click(object sender, RoutedEventArgs e) {
-
+		private void btnShakeHand_Click(object sender, RoutedEventArgs e){
+			Task.Factory.StartNew(()=>{
+				Server.Instance.ShakeHand(ipFirstByte + "." + ipSecondByte + "." + ipThirdByte + "." + ipFourthByte);
+			});
 		}
 
 		private void btnDisconnect_Click(object sender, RoutedEventArgs e) {
