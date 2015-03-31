@@ -240,8 +240,8 @@ namespace NetworkTest
 			{
 				Socket client = socketListener.Accept();
 
-				ServiceClient sc = new ServiceClient(client, token);
-				Task t1 = Task.Factory.StartNew(() => { sc.Start(ProcessData); }, token.Token);
+				ServiceClient sc = new ServiceClient();
+				Task t1 = Task.Factory.StartNew(() => { sc.Start(client, token, ProcessData); }, token.Token);
 			}
 
 			#region//// DEBUG
@@ -346,7 +346,7 @@ namespace NetworkTest
 
 		// need to provide this to ServiceClient.Start
 		void ProcessData(Package package, Socket client)
-					{
+		{
 			// only one task can process this at a time.
 			if (!token.IsCancellationRequested)
 			{
@@ -377,13 +377,13 @@ namespace NetworkTest
 		/// </summary>
 		/// <param name="cancelToken"></param>
 		void Run()
-				{
+		{
 			while (!token.IsCancellationRequested)
 					{
 				Socket client = socketListener.Accept();
 
-				ServiceClient sc = new ServiceClient(client, token);
-				Task t1 = Task.Factory.StartNew(() => { sc.Start(ProcessData); }, token.Token);
+				ServiceClient sc = new ServiceClient();
+				Task t1 = Task.Factory.StartNew(() => { sc.Start(client, token, ProcessData); }, token.Token);
 		}
 
 			#region//// DEBUG
