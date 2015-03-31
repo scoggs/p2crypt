@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace EncryptionTests
@@ -64,7 +60,7 @@ namespace EncryptionTests
 
 			public override bool Equals(object obj)
 			{
-				return obj is TestData? (obj as TestData).someData == someData:false;
+				return obj is TestData ? (obj as TestData).someData == someData : false;
 			}
 
 			public override int GetHashCode()

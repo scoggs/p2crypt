@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace P2Crypt
@@ -54,15 +50,15 @@ namespace P2Crypt
 
 		public static void SerializeToFile<TData>(TData data, String FileName, SymmetricAlgorithm crypto)
 		{
-			#if DEBUG //This is a really dangerous piece of code if enabled...
+#if DEBUG //This is a really dangerous piece of code if enabled...
 
-			 // Create or open the specified file.
+			// Create or open the specified file.
 			/*using (FileStream fStream = File.Open(FileName + ".debug", FileMode.Create))
 			{
 				XmlSerializer sWriter = new XmlSerializer(typeof(TData));
 				sWriter.Serialize(fStream, data);
 			}*/
-			#endif
+#endif
 			// Create or open the specified file.
 			using (FileStream fStream = File.Open(FileName, FileMode.OpenOrCreate))
 			{

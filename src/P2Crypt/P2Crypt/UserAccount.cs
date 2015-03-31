@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace P2Crypt
@@ -65,7 +59,8 @@ namespace P2Crypt
 		[XmlElement]
 		public Guid GlobalId
 		{
-			get { return _globalId; } set { _globalId = value; }
+			get { return _globalId; }
+			set { _globalId = value; }
 		}
 
 		//The public profile is something to share with other users. It is a way to identify and verify a user.

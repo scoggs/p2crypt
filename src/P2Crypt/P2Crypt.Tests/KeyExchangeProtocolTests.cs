@@ -1,8 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using P2Crypt;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EncryptionTests
 {
@@ -36,8 +33,8 @@ namespace EncryptionTests
 		[TestMethod]
 		public void ProfileExchangeTest()
 		{
-			UserAccount userA = new UserAccount() { UserNick = "UserA"};
-			UserAccount userB = new UserAccount() { UserNick = "UserB"};
+			UserAccount userA = new UserAccount() { UserNick = "UserA" };
+			UserAccount userB = new UserAccount() { UserNick = "UserB" };
 			UserAccount userC = new UserAccount() { UserNick = "UserC" };
 
 			PublicProfile publicB = userB.PublicProfile;
