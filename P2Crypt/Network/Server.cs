@@ -11,7 +11,7 @@
  *		- Need if Server need to received a CancellationTokenSource
  *		  Find a better way to stop the task that execute the Run method.
  *		  
- *      - need to 
+ *      - need to reimplement Disconnect()
  */
 
 

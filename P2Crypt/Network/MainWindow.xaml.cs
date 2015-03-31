@@ -146,7 +146,8 @@ namespace Network {
 			if(String.IsNullOrEmpty(txtMessage.Text) || String.IsNullOrWhiteSpace(txtMessage.Text))
 				return;
 
-			Task.Factory.StartNew(()=>{ Server.Instance.SendMessage(txtMessage.Text); });
+			string msg = txtMessage.Text;
+			Task.Factory.StartNew(()=>{ Server.Instance.SendMessage(msg); });
 		}
 
 		
