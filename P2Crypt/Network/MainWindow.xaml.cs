@@ -1,6 +1,9 @@
 ﻿/**
  * NOTE:
+ *			- it is very important that the user supplied a user name.
+ * 
  *			- What you see on the GUI are the most important parts that are needed.
+ *			
  *			- Suggestion: create a configurable setting for advance user to change the port number. 
  *						  The port number is access by the Server Class before it starts up. 
  * 
@@ -58,32 +61,17 @@ namespace Network {
 			ipFourthByte.SelectedIndex = 0;
 			
 			txtChatWindow.IsReadOnly = true;
-
-
-			#region server
-			tokenSource = new CancellationTokenSource();
-
-			// create a user account for the current user
-			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };				
-			
-			// feed server the data it want's and start it
-			Server.Initialization(userAccount, tokenSource, this);
-			Server.Instance.Start();
-			#endregion
+			txtFriendsList.IsReadOnly = true;
 		}
 
 
 		private void userNickTxtBox_TextChanged(object sender, TextChangedEventArgs e) {
 			// The user have to enter in their user name before they can do anything
 			if( !(String.IsNullOrEmpty(userNickTxtBox.Text) || String.IsNullOrWhiteSpace(userNickTxtBox.Text)) ){
-				btnSend.IsEnabled = true;
-				btnShakeHand.IsEnabled = true;
-				txtMessage.IsEnabled = true;
+				btnStart.IsEnabled = true;
 			}
 			else{
-				btnSend.IsEnabled = false;
-				btnShakeHand.IsEnabled = false;
-				txtMessage.IsEnabled = false;
+				btnStart.IsEnabled = false;
 			}
 		}
 
@@ -105,9 +93,27 @@ namespace Network {
 		}
 
 
+		// the start button event
+		private void Button_Click(object sender, RoutedEventArgs e) {
+			#region Start Server
+			tokenSource = new CancellationTokenSource();
 
+			// create a user account for the current user
+			userAccount = new UserAccount(){ UserNick = userNickTxtBox.Text };				
+			
+			// feed server the data it want's and start it
+			Server.Initialization(userAccount, tokenSource, this);
+			Server.Instance.Start();
+			#endregion
 
+			// enable all the buttons
+			btnDisconnect.IsEnabled = true;
+			btnSend.IsEnabled = true;
+			btnShakeHand.IsEnabled = true;
 
+			// disable start button 
+			btnStart.IsEnabled = false;
+		}
 
 	}
 }
