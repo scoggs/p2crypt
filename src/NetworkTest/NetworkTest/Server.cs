@@ -140,8 +140,8 @@ namespace NetworkTest
 			{
 				Socket client = socketListener.Accept();
 
-				ServiceClient sc = new ServiceClient(client, token);
-				Task t1 = Task.Factory.StartNew(() => { sc.Start(ProcessData); }, token.Token);
+				ServiceClient sc = new ServiceClient();
+				Task t1 = Task.Factory.StartNew(() => { sc.Start(client, token, ProcessData); }, token.Token);
 			}
 
 			#region//// DEBUG
@@ -384,19 +384,18 @@ namespace NetworkTest
 		CancellationTokenSource token;
 		readonly int maxBufferSize = 1024;
 
-		public ServiceClient(Socket socket, CancellationTokenSource cts)
-		{
-			client = socket;
-			token = cts;
-		}
+		public ServiceClient(){}
 
 		/// <summary>
 		/// Capture the data in transmission and then call a method within Server to process it.
 		/// This keep the Server as the only class that has access to public profile info.
 		/// </summary>
 		/// <param name="LoadingDock">The method within Server that will do the data processing</param>
-		public void Start(Action<Package, Socket> LoadingDock)
+		public void Start(Socket socket, CancellationTokenSource cts, Action<Package, Socket> LoadingDock)
 		{
+			client = socket;
+			token = cts;
+
 			if (token.IsCancellationRequested)
 			{
 				client.Close(0);
