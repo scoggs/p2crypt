@@ -215,7 +215,7 @@ namespace NetworkTest
 				socketListener.Listen(maxConnection);
 
 				// send em off
-				serverRunTask = Task.Factory.StartNew(() => { Run(); }, token.Token);
+				serverRunTask = Task.Factory.StartNew(() => { Run(); }, token.Token);				
 			}
 			catch (SocketException se)
 			{
