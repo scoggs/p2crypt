@@ -296,9 +296,10 @@ namespace Network{
 #endregion
 				}
 			}
-
 			
 			mainWindowGUI.txtMessage.InvokedIfRequired(()=>{
+				mainWindowGUI.txtChatWindow.AppendText(userAccount.UserNick + ": " + Environment.NewLine +
+													   mainWindowGUI.txtMessage.Text);
 				mainWindowGUI.txtMessage.Clear();
 			});
 		}
