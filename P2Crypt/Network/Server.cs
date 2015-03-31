@@ -123,7 +123,13 @@ namespace Network{
 		/// </summary>
 		/// <param name="cancelToken"></param>
 		void Run(){
-			while(!token.IsCancellationRequested){
+			while(!token.IsCancellationRequested) {
+
+#region//// DEBUG
+				Task.Factory.StartNew(()=>{
+					MessageBox.Show("Server Running.");
+				});
+#endregion
 				Socket client = socketListener.Accept();
 
 				ServiceClient sc = new ServiceClient(client, token);
