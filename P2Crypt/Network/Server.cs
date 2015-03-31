@@ -122,15 +122,15 @@ namespace Network{
 		/// Keep running until the parent thread send's a cancellation notice
 		/// </summary>
 		/// <param name="cancelToken"></param>
-		void Run(){
-			while(!token.IsCancellationRequested) {
+		async void Run(){
+			while(!token.IsCancellationRequested){
 
 #region//// DEBUG
 				Task.Factory.StartNew(()=>{
 					MessageBox.Show("Server Running.");
 				});
 #endregion
-				Socket client = socketListener.Accept();
+				Socket client = await socketListener.Accept_Async();
 
 				ServiceClient sc = new ServiceClient(client, token);
 				Task t1 = Task.Factory.StartNew(()=>{ sc.Start(ProcessData); }, token.Token);
