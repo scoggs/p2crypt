@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Xml.Serialization;
 
@@ -11,6 +12,12 @@ namespace P2CCore
 	public class PublicProfile
 	{
 		#region Properties
+
+		/// <summary>
+		/// All the chats of which the current user is part of.
+		/// </summary>
+		[XmlArray]
+		public List<ChatHistory> Chats { get; set; }
 
 		[XmlElement]
 		public Guid GlobalId { get; set; }

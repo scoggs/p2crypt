@@ -5,10 +5,10 @@ using System.Xml.Serialization;
 namespace P2CCore
 {
 	/// <summary>
-	/// A chat is a collection of exchanged data packages between multiple users.
+	/// A chat history is a collection of exchanged data packages between multiple users.
 	/// </summary>
 	[Serializable]
-	public class Chat
+	public class ChatHistory
 	{
 		#region Properties
 
@@ -19,11 +19,10 @@ namespace P2CCore
 		public List<PublicProfile> ChatMembers { get; set; }
 
 		/// <summary>
-		/// The chat history.
-		/// TODO: this should be timestamped collection of object (must support text, emoji, images, etc.)
-		/// TODO: will be storing image/video data in here as well? This will drastically increase the filesize of a chatlog..
+		/// The chat history between the members of the chat.
 		/// </summary>
-		public List<string> Messages { get; set; }
+		[XmlArray]
+		public List<ChatEntry> Messages { get; set; }
 
 		#endregion Properties
 	}
