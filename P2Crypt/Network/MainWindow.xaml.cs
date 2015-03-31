@@ -89,8 +89,14 @@ namespace Network {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void btnShakeHand_Click(object sender, RoutedEventArgs e){
+
+			string str = ipFirstByte.SelectedItem.ToString() + "." + 
+						 ipSecondByte.SelectedItem.ToString() + "." + 
+						 ipThirdByte.SelectedItem.ToString() + "." + 
+						 ipFourthByte.SelectedItem.ToString();
+
 			Task.Factory.StartNew(()=>{
-				Server.Instance.ShakeHand(ipFirstByte + "." + ipSecondByte + "." + ipThirdByte + "." + ipFourthByte);
+				Server.Instance.ShakeHand(str);
 			});
 		}
 
