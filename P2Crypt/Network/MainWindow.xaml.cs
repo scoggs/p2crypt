@@ -94,6 +94,13 @@ namespace Network {
 
 		private void btnDisconnect_Click(object sender, RoutedEventArgs e) {
 			tokenSource.Cancel();
+
+#region//// DEBUG
+			Task.Factory.StartNew(()=>{
+				MessageBox.Show("CancellationTokenSource.IsCancellationRequested: " + tokenSource.IsCancellationRequested.ToString());
+			});
+#endregion			
+
 		}
 
 
