@@ -101,28 +101,11 @@ namespace Network {
 		}
 
 		private void btnDisconnect_Click(object sender, RoutedEventArgs e) {
-			
-
-#region//// DEBUG
-			Task.Factory.StartNew(()=>{
-				MessageBox.Show("Start of disonnecting: " + Environment.NewLine +
-					            "CancellationTokenSource.IsCancellationRequested: " + tokenSource.IsCancellationRequested.ToString());
-			});
-#endregion
-			
 			tokenSource.Cancel();
 
 			Task.Factory.StartNew(()=>{
 				Server.Instance.Disconnect();
 			});
-
-#region//// DEBUG
-			Task.Factory.StartNew(()=>{
-				MessageBox.Show("After disonnecing: " + Environment.NewLine +
-					            "CancellationTokenSource.IsCancellationRequested: " + tokenSource.IsCancellationRequested.ToString());
-			});
-#endregion
-
 		}
 
 
