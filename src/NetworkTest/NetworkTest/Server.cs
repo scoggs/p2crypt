@@ -134,12 +134,14 @@ namespace NetworkTest
 		/// <param name="cancelToken"></param>
 		void Run()
 		{
+			Socket client;
+
 			while (!token.IsCancellationRequested)
 			{
-				Socket client = socketListener.Accept();
+				client = socketListener.Accept();
 
 				ServiceClient sc = new ServiceClient();
-				Task t1 = Task.Factory.StartNew(() => { sc.Start(client, token, ProcessData); }, token.Token);
+				sc.Start(client, token, ProcessData);
 			}
 
 			#region//// DEBUG
@@ -401,40 +403,44 @@ namespace NetworkTest
 				return;
 			}
 
-			Package deliveredPackage;
+			Thread newServiceThread = new Thread(new ThreadStart(()=>{
+				Package deliveredPackage;
 
-			try
-			{
-				using (MemoryStream ms = new MemoryStream())
-				{
-					// get the data that is coming in
-					BinaryFormatter bf = new BinaryFormatter();
-					byte[] buffer = new byte[maxBufferSize];
-					int bytesRead = 0;
-					while ((bytesRead = client.Receive(buffer, 0, maxBufferSize, SocketFlags.None)) > 0)
+				try
+				{					
+					using (MemoryStream ms = new MemoryStream())
 					{
-						ms.Write(buffer, 0, bytesRead);
+						// get the data that is coming in
+						BinaryFormatter bf = new BinaryFormatter();
+						byte[] buffer = new byte[maxBufferSize];
+						int bytesRead = 0;
+						while ((bytesRead = client.Receive(buffer, 0, maxBufferSize, SocketFlags.None)) > 0)
+						{
+							ms.Write(buffer, 0, bytesRead);
+						}
+
+						ms.Seek(0, SeekOrigin.Begin);
+
+						deliveredPackage = (Package)bf.Deserialize(ms);
 					}
 
-					ms.Seek(0, SeekOrigin.Begin);
-
-					deliveredPackage = (Package)bf.Deserialize(ms);
+					LoadingDock(deliveredPackage, client);
 				}
-
-				LoadingDock(deliveredPackage, client);
-			}
-			catch (Exception ex)
-			{
-				#region////DEBUG
-				Task.Factory.StartNew(() =>
+				catch (Exception ex)
 				{
-					MessageBox.Show("EXCEPTION WHILE SERVICING INCOMING CONNECTION: " + Environment.NewLine +
-									"Remote address: " + client.RemoteEndPoint.ToString() + Environment.NewLine +
-									"EXCEPTION: " + Environment.NewLine +
-									ex.Message);
-				});
-				#endregion
-			}
+					#region////DEBUG
+					Task.Factory.StartNew(() =>
+					{
+						MessageBox.Show("EXCEPTION WHILE SERVICING INCOMING CONNECTION: " + Environment.NewLine +
+										"Remote address: " + client.RemoteEndPoint.ToString() + Environment.NewLine +
+										"EXCEPTION: " + Environment.NewLine +
+										ex.Message);
+					});
+					#endregion
+				}
+			}));
+
+			newServiceThread.Start();
 
 		}
 	}
