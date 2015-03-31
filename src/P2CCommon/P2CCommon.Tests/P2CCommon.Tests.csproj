@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{08139889-8562-435B-8DA5-4A04D4C6DAD9}</ProjectGuid>
+    <ProjectGuid>{F096C03B-9B8F-46E9-82EE-136DF2808E9C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>P2CCore.Tests</RootNamespace>
-    <AssemblyName>P2CCore.Tests</AssemblyName>
+    <RootNamespace>P2CCommon.Tests</RootNamespace>
+    <AssemblyName>P2CCommon.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -21,7 +21,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -29,7 +29,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\bin\Release\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -51,20 +51,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\P2CCommon\P2CCommon\P2CCommon.csproj">
-      <Project>{9073d64b-dd36-4982-8543-48e732b7d2fe}</Project>
-      <Name>P2CCommon</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\P2Crypt\P2Crypt\P2Crypt.csproj">
-      <Project>{6ee72055-e5bd-4f72-ac32-3f554ac395bb}</Project>
-      <Name>P2Crypt</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\P2CCore\P2CCore.csproj">
-      <Project>{dbe51873-f540-4852-9b2a-8186bc7bf50e}</Project>
-      <Name>P2CCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

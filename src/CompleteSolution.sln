@@ -20,7 +20,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkTest", "NetworkTest\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCore", "P2CCore\P2CCore\P2CCore.csproj", "{DBE51873-F540-4852-9B2A-8186BC7BF50E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "\P2CCore.Tests", "P2CCore\P2CCore.Tests\P2CCore.Tests.csproj", "{08139889-8562-435B-8DA5-4A04D4C6DAD9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCore.Tests", "P2CCore\P2CCore.Tests\P2CCore.Tests.csproj", "{08139889-8562-435B-8DA5-4A04D4C6DAD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCommon", "P2CCommon\P2CCommon\P2CCommon.csproj", "{9073D64B-DD36-4982-8543-48E732B7D2FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCommon.Tests", "P2CCommon\P2CCommon.Tests\P2CCommon.Tests.csproj", "{F096C03B-9B8F-46E9-82EE-136DF2808E9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,6 +56,14 @@ Global
 		{08139889-8562-435B-8DA5-4A04D4C6DAD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08139889-8562-435B-8DA5-4A04D4C6DAD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08139889-8562-435B-8DA5-4A04D4C6DAD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9073D64B-DD36-4982-8543-48E732B7D2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9073D64B-DD36-4982-8543-48E732B7D2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9073D64B-DD36-4982-8543-48E732B7D2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9073D64B-DD36-4982-8543-48E732B7D2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F096C03B-9B8F-46E9-82EE-136DF2808E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F096C03B-9B8F-46E9-82EE-136DF2808E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F096C03B-9B8F-46E9-82EE-136DF2808E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F096C03B-9B8F-46E9-82EE-136DF2808E9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
