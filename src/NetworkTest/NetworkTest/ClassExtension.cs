@@ -6,6 +6,7 @@ namespace NetworkTest
 {
 	public static class ClassExtension
 	{
+		#region Methods
 
 		// allow code residing on non-GUI thread to call control's methods within the GUI-thread
 		// asynchronous
@@ -16,7 +17,6 @@ namespace NetworkTest
 			else
 				control.Dispatcher.Invoke(action);
 		}
-
 
 		// to check if socket connection is still open
 		// SocketExcpetion uses Winsock error code . need to update for non-windows os
@@ -51,5 +51,6 @@ namespace NetworkTest
 			}
 		}
 
+		#endregion Methods
 	}
 }

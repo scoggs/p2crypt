@@ -4,7 +4,7 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:viewModels="clr-namespace:UiTest.ViewModels"
         Title="Conversation Name" Height="500" Width="500" BorderThickness="1" 
-		MinWidth="300" MinHeight="300" Icon="/UiTest;component/Resources/Images/Logo.png" WindowStartupLocation="CenterScreen" AllowDrop="True" FontFamily="Segoe WP" FontSize="14">
+		MinWidth="300" MinHeight="300" Icon="/UiTest;component/Resources/Images/Logo.png" WindowStartupLocation="CenterScreen" FontFamily="Segoe WP" FontSize="14">
     <Window.DataContext>
         <viewModels:MainWindowViewModel />
     </Window.DataContext>
