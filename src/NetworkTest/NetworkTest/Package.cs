@@ -12,7 +12,7 @@
 #endregion Header
 
 
-using P2Crypt;
+using P2CCore;
 using System;
 
 namespace NetworkTest

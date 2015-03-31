@@ -39,12 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuddyList.cs" />
+    <Compile Include="Chat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicProfile.cs" />
+    <Compile Include="UserAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\P2CCommon\P2CCommon\P2CCommon.csproj">
       <Project>{9073d64b-dd36-4982-8543-48e732b7d2fe}</Project>
       <Name>P2CCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\P2Crypt\P2Crypt\P2Crypt.csproj">
+      <Project>{6EE72055-E5BD-4F72-AC32-3F554AC395BB}</Project>
+      <Name>P2Crypt</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

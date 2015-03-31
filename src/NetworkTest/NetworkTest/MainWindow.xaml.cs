@@ -23,7 +23,7 @@
 #endregion Header
 
 
-using P2Crypt;
+using P2CCore;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,7 +42,7 @@ namespace NetworkTest
 		public readonly int defaultPort = 12345; // not the best way but it'll do for now. This number is access within Server class
 
 		CancellationTokenSource tokenSource; // to stop the Server gracefully if user x out of the app.
-		P2Crypt.UserAccount userAccount;
+		UserAccount userAccount;
 
 		#endregion Fields
 

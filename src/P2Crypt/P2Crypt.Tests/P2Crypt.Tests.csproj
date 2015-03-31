@@ -60,6 +60,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\P2CCore\P2CCore\P2CCore.csproj">
+      <Project>{DBE51873-F540-4852-9B2A-8186BC7BF50E}</Project>
+      <Name>P2CCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\P2Crypt\P2Crypt.csproj">
       <Project>{e4d4f4bd-ae82-4484-a007-6c4b8d77e238}</Project>
       <Name>P2Crypt</Name>

@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using P2Crypt;
+using P2CCore;
 
 namespace EncryptionTests
 {

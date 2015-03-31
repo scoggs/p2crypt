@@ -19,7 +19,7 @@
 #endregion Header
 
 
-using P2Crypt;
+using P2CCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -61,7 +61,7 @@ namespace NetworkTest
 
 		// need this to decryp the message from our buddy.
 		// string is the user nick
-		Dictionary<Guid, P2Crypt.PublicProfile> publicProfileDict;
+		Dictionary<Guid, PublicProfile> publicProfileDict;
 		Task serverRunTask;
 
 		// store each connection socket information, string is the user nick
@@ -295,8 +295,8 @@ namespace NetworkTest
 			#region WARNING, May cause spinlock
 			lock (myLock)
 			{
-				publicProfileDict.Add(messageData.user.GlobalID, messageData.user);
-				socketDict.Add(messageData.user.GlobalID, client);
+				publicProfileDict.Add(messageData.user.GlobalId, messageData.user);
+				socketDict.Add(messageData.user.GlobalId, client);
 			}
 			#endregion
 
@@ -330,7 +330,7 @@ namespace NetworkTest
 			{
 				lock (processLock)
 				{
-					if (publicProfileDict.ContainsKey(package.user.GlobalID))
+					if (publicProfileDict.ContainsKey(package.user.GlobalId))
 					{
 						// incoming packge is a message:
 						NewMessage(package, client);
