@@ -229,31 +229,7 @@ namespace NetworkTest
 				});
 				#endregion
 			}
-		}
-		/// <summary>
-		/// Keep running until the parent thread send's a cancellation notice
-		/// </summary>
-		/// <param name="cancelToken"></param>
-		void Run()
-		{
-			while (!token.IsCancellationRequested)
-			{
-				Socket client = socketListener.Accept();
-
-				ServiceClient sc = new ServiceClient();
-				Task t1 = Task.Factory.StartNew(() => { sc.Start(client, token, ProcessData); }, token.Token);
-			}
-
-			#region//// DEBUG
-			// let the dev know server will excit
-			Task.Factory.StartNew(() =>
-			{
-				MessageBox.Show("SERVER EXITING NOW");
-			});
-			#endregion
-
-			CleanUP();
-		}
+		}		
 
 		void CleanUP()
 		{
