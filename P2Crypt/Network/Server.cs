@@ -267,8 +267,14 @@ namespace Network{
 						socket.Send(ms.ToArray(), 0, (int)ms.Length, SocketFlags.None);
 					}
 				}
-				catch(Exception){
-					// do nothing
+				catch(Exception ex){
+#region//// DEBUG
+					Task.Factory.StartNew(()=>{ 
+						MessageBox.Show("EXCEPTION IN Server.ShakeHand" + Environment.NewLine +
+										"Message: " + Environment.NewLine +
+										ex.Message);
+					});
+#endregion
 					socket = null;
 				}
 			}
