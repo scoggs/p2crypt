@@ -205,7 +205,21 @@ namespace Network{
 			messageData = null;
 		}
 
+
+		// doesn't handle out of memory exception
+		// exception may/my not bubble up into the ServiceClient object. I need to read how Exception work in Task again.
 		void NewFriend(Package messageData, Socket client) {
+			// Send public profile to our new friend
+			// don't refactor this, this method will be running on different thread.
+			using(MemoryStream ms = new MemoryStream()){
+				Package package = new Package(userAccount.PublicProfile, null);
+				
+				BinaryFormatter bf = new BinaryFormatter();
+				bf.Serialize(ms, package);
+				ms.Seek(0, SeekOrigin.Begin);
+				client.Send(ms.ToArray(), 0, (int)ms.Length, SocketFlags.None);
+			}
+
 #region WARNING, May cause spinlock
 			lock(myLock){
 				publicProfileDict.Add(messageData.user.GlobalID, messageData.user);
@@ -219,10 +233,36 @@ namespace Network{
 		}
 
 
-		public void ShakeHand(String ip){
-			IP
+		// if user entered the wrong ip, just return
+		// upon any exeption just return
+		// Once a connection has been established send the public profile.
+		// NOTE: doesn't handle out of memory exception gracefully.
+		public void ShakeHand(String ipStr){
+			IPAddress ipAddress;
+			
+			if(IPAddress.TryParse(ipStr, out ipAddress)){
+				Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+				
+				try{
+					socket.Connect(ipAddress, mainWindowGUI.defaultPort);
 
+					Package package = new Package(userAccount.PublicProfile, null);
+
+					using(MemoryStream ms = new MemoryStream()){
+						BinaryFormatter bf = new BinaryFormatter();
+						bf.Serialize(ms, package);
+						ms.Seek(0, SeekOrigin.Begin);
+						socket.Send(ms.ToArray(), 0, (int)ms.Length, SocketFlags.None);
+					}
+				}
+				catch(Exception){
+					// do nothing
+					socket = null;
+				}
+			}
 		}
+
+
 		#endregion
 
 

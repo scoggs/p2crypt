@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using P2Crypt;
 
 namespace Network {
+
+	[Serializable]
 	public class Package{
 		public PublicProfile user;
 		public byte[] data;
