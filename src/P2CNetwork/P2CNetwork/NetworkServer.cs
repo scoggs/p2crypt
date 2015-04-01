@@ -40,6 +40,11 @@ namespace P2CNetwork
 
 
 		#region Properties
+
+
+		/// <summary>
+		/// Allow user to get the most recent arrived package.
+		/// </summary>
 		public Package Package
 		{
 			get
@@ -57,11 +62,42 @@ namespace P2CNetwork
 			}
 		}
 
-
 		#endregion Properties
 
 
 		#region Methods
+
+		/// <summary>
+		/// Start the process in which NetworkServer listen for incoming connection. Runs on a Separate Thread.
+		/// </summary>
+		public void Start()
+		{
+			if(hasServerStart)
+				return;
+
+
+			hasServerStart = true;
+		}
+
+
+		/// <summary>
+		/// Gracefully disconnect the NetworkServer
+		/// </summary>
+		public void Disconnect()
+		{
+			//// TO-DO
+
+			hasServerStart = false;
+		}
+
+		/// <summary>
+		/// Send the package to all connected node. On fail do nothing.
+		/// </summary>
+		/// <param name="deliveryPackage">The current data user want to send out</param>
+		public void Send(Package deliveryPackage)
+		{
+
+		}
 
 
 		#endregion Methods
