@@ -21,7 +21,10 @@ namespace P2CNetwork
 		bool hasPackage;							// when NetworkServer received data and finish de-serializing it this turn to true
 		bool hasServerStart;
 
+		// Socket data
 		int port;
+		int backlog;
+
 		Package package;
 
 		#endregion Fields
@@ -29,9 +32,10 @@ namespace P2CNetwork
 
 		#region Constructors
 
-		public NetworkServer(int port = 12345)
+		public NetworkServer(int port = 12345, int backlog = 100)
 		{
 			this.port = port;
+			this.backlog = backlog;
 			hasPackage = false;
 			hasServerStart = false;
 		}
