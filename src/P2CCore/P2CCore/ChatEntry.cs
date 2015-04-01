@@ -10,12 +10,13 @@ namespace P2CCore
 	[Serializable]
 	public class ChatEntry
 	{
+		#region Properties
+
 		/// <summary>
-		/// The timestamp when the entry occured.
-		/// TODO: should we use http://nodatime.org/ ?
+		/// The transmitted data.
 		/// </summary>
 		[XmlElement]
-		public DateTime Timestamp { get; set; }
+		public byte[] Content { get; set; }
 
 		/// <summary>
 		/// This indicates the type of chat message (e.g. video, audio, text, image, ...).
@@ -25,9 +26,12 @@ namespace P2CCore
 		public string ContentType { get; set; }
 
 		/// <summary>
-		/// The transmitted data.
+		/// The timestamp when the entry occured.
+		/// TODO: should we use http://nodatime.org/ ?
 		/// </summary>
 		[XmlElement]
-		public byte[] Content { get; set; }
+		public DateTime Timestamp { get; set; }
+
+		#endregion Properties
 	}
 }

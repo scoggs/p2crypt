@@ -97,9 +97,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\P2CCommon\P2CCommon\P2CCommon.csproj">
+      <Project>{9073d64b-dd36-4982-8543-48e732b7d2fe}</Project>
+      <Name>P2CCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\P2CCore\P2CCore\P2CCore.csproj">
-      <Project>{dbe51873-f540-4852-9b2a-8186bc7bf50e}</Project>
+      <Project>{DBE51873-F540-4852-9B2A-8186BC7BF50E}</Project>
       <Name>P2CCore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\P2Crypt\P2Crypt\P2Crypt.csproj">
+      <Project>{6ee72055-e5bd-4f72-ac32-3f554ac395bb}</Project>
+      <Name>P2Crypt</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
