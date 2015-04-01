@@ -51,6 +51,10 @@
       <Project>{9073d64b-dd36-4982-8543-48e732b7d2fe}</Project>
       <Name>P2CCommon</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\P2CNetwork\P2CNetwork\P2CNetwork.csproj">
+      <Project>{2fe719ab-df51-4407-9e48-d9935ba6a06f}</Project>
+      <Name>P2CNetwork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\P2Crypt\P2Crypt\P2Crypt.csproj">
       <Project>{6EE72055-E5BD-4F72-AC32-3F554AC395BB}</Project>
       <Name>P2Crypt</Name>
