@@ -100,7 +100,7 @@
       <Name>P2CCommon</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\P2CCore\P2CCore\P2CCore.csproj">
-      <Project>{DBE51873-F540-4852-9B2A-8186BC7BF50E}</Project>
+      <Project>{dbe51873-f540-4852-9b2a-8186bc7bf50e}</Project>
       <Name>P2CCore</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\P2CNetwork\P2CNetwork\P2CNetwork.csproj">
