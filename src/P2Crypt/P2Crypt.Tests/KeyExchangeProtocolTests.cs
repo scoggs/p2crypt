@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using P2CCore;
+using P2CCommon;
 
 namespace EncryptionTests
 {
@@ -19,7 +20,7 @@ namespace EncryptionTests
 			UserAccount userB = new UserAccount() { UserNick = "UserB" };
 			UserAccount userC = new UserAccount() { UserNick = "UserC" };
 
-			PublicProfile publicB = userB.PublicProfile;
+			IPublicProfile publicB = userB.PublicProfile;
 
 			byte[] data = new byte[] { 1, 2, 3, 4, 5 };
 
@@ -37,7 +38,7 @@ namespace EncryptionTests
 			UserAccount userB = new UserAccount() { UserNick = "UserB" };
 			UserAccount userC = new UserAccount() { UserNick = "UserC" };
 
-			PublicProfile publicB = userB.PublicProfile;
+			IPublicProfile publicB = userB.PublicProfile;
 
 			byte[] data = new byte[] { 1, 2, 3, 4, 5 };
 

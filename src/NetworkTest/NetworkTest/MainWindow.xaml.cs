@@ -23,26 +23,29 @@
 #endregion Header
 
 
-using P2CCore;
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using P2CCommon;
+using P2CNetwork;
+using P2CCore;
 
 namespace NetworkTest
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
-	public partial class MainWindow : Window
+	public partial class MainWindow : Window, IUserInteractor
 	{
 		#region Fields
 
 		public readonly int defaultPort = 12345; // not the best way but it'll do for now. This number is access within Server class
 
 		CancellationTokenSource tokenSource; // to stop the Server gracefully if user x out of the app.
-		UserAccount userAccount;
+		IUserAccount userAccount;
 
 		#endregion Fields
 
@@ -116,6 +119,7 @@ namespace NetworkTest
 		// the start button event
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
+            
 			#region Start Server
 			tokenSource = new CancellationTokenSource();
 
@@ -150,5 +154,49 @@ namespace NetworkTest
 		}
 
 		#endregion Methods
-	}
+
+        #region IUserInteractor
+        public void Notify(string information)
+        {
+            MessageBox.Show(information);
+        }
+        public void Notify(string text, string caption)
+        {
+            MessageBox.Show(text, caption);
+        }
+        public ITextList TextMessage { get { return new TextList(txtMessage); } }
+        public ITextList TextChatWindow { get { return new TextList(txtChatWindow); } }
+        public int DefaultPort { get { return defaultPort; } }
+        public ITextList TextFriendsList { get { return new TextList(txtFriendsList); } }
+
+        #endregion
+
+        public class TextList : ITextList
+        {
+            private TextBox textBox;
+
+            public TextList(TextBox tb)
+            {
+                textBox = tb;
+            }
+
+            public void AppendText(string text)
+            {
+                textBox.InvokedIfRequired(() => textBox.AppendText(text));
+            }
+            public void Clear()
+            {
+                textBox.InvokedIfRequired(() => textBox.Clear());
+            }
+            public string Text
+            {
+                get
+                {
+                    string buff = "";
+                    textBox.InvokedIfRequired(() => buff = textBox.Text);
+                    return buff;
+                }
+            }
+        }
+    }
 }

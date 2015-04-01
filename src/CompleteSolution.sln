@@ -26,6 +26,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCommon", "P2CCommon\P2CC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CCommon.Tests", "P2CCommon\P2CCommon.Tests\P2CCommon.Tests.csproj", "{F096C03B-9B8F-46E9-82EE-136DF2808E9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CNetwork", "P2CNetwork\P2CNetwork\P2CNetwork.csproj", "{2FE719AB-DF51-4407-9E48-D9935BA6A06F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P2CNetwork.Tests", "P2CNetwork\P2CNetwork.Tests\P2CNetwork.Tests.csproj", "{B4E268DA-BAF0-4556-9183-052255A85547}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,14 @@ Global
 		{F096C03B-9B8F-46E9-82EE-136DF2808E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F096C03B-9B8F-46E9-82EE-136DF2808E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F096C03B-9B8F-46E9-82EE-136DF2808E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE719AB-DF51-4407-9E48-D9935BA6A06F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE719AB-DF51-4407-9E48-D9935BA6A06F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE719AB-DF51-4407-9E48-D9935BA6A06F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE719AB-DF51-4407-9E48-D9935BA6A06F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4E268DA-BAF0-4556-9183-052255A85547}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4E268DA-BAF0-4556-9183-052255A85547}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4E268DA-BAF0-4556-9183-052255A85547}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4E268DA-BAF0-4556-9183-052255A85547}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

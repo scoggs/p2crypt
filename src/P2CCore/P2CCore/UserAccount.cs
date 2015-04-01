@@ -2,11 +2,11 @@
 using System;
 using System.Security.Cryptography;
 using System.Xml.Serialization;
-
+using P2CCommon;
 namespace P2CCore
 {
 	[Serializable]
-	public class UserAccount
+	public class UserAccount : IUserAccount
 	{
 		#region Fields
 
@@ -36,7 +36,7 @@ namespace P2CCore
 
 		//The public profile is something to share with other users. It is a way to identify and verify a user.
 		[XmlIgnore]
-		public PublicProfile PublicProfile
+		public IPublicProfile PublicProfile
 		{
 			get
 			{
