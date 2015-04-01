@@ -4,9 +4,7 @@
  * The delivery package. Signature required.
  * This class is the class that will be seralized before it get sent through the net.
  *
- * Can use properties if  you want, can change it around if like you but it must contain a string and a byte[]
- *
- * This class is required to be in the same directory as the Server class.
+ * Can use properties if  you want, can change it around if like you but it must contain a PublicProfile and a byte[]
  */
 
 #endregion Header
@@ -17,23 +15,38 @@ using P2CCommon;
 namespace P2CNetwork
 {
     [Serializable]
-    public class Package
-    {
-        #region Fields
+    public class Package : IPackage {
 
-        public byte[] data;
-        public IPublicProfile user;
+		#region Fields
 
-        #endregion Fields
+		IPublicProfile publicProfile;
+		byte[] data;
+
+		#endregion Fields
+
+
+		#region Properties
+
+		public IPublicProfile PublicProfile {
+			get{ return publicProfile; }
+			private set{ publicProfile = value; }
+		}
+
+		public byte[] Data {
+			get { throw new NotImplementedException(); }
+		}
+
+        #endregion Properties
 
         #region Constructors
 
-        public Package(IPublicProfile user, byte[] data)
+        public Package(IPublicProfile userProfile, byte[] data)
         {
-            this.user = user;
+            this.publicProfile = userProfile;
             this.data = data;
         }
 
         #endregion Constructors
-    }
+		
+	}
 }
