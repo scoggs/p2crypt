@@ -89,7 +89,7 @@ namespace P2CNetwork
 		/// </summary>
 		public void Disconnect()
 		{
-			//// TO-DO //testchange
+			//// TO-DO
 
 			hasServerStart = false;
 		}
