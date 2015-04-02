@@ -42,7 +42,12 @@
     <Compile Include="CryptoUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StandardAlgorithms.cs" />
-    <Compile Include="UserAccount.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\P2CCommon\P2CCommon\P2CCommon.csproj">
+      <Project>{9073d64b-dd36-4982-8543-48e732b7d2fe}</Project>
+      <Name>P2CCommon</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

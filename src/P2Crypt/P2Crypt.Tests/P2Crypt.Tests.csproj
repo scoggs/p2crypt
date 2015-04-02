@@ -60,6 +60,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\P2CCommon\P2CCommon\P2CCommon.csproj">
+      <Project>{9073d64b-dd36-4982-8543-48e732b7d2fe}</Project>
+      <Name>P2CCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\P2CCore\P2CCore\P2CCore.csproj">
+      <Project>{dbe51873-f540-4852-9b2a-8186bc7bf50e}</Project>
+      <Name>P2CCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\P2Crypt\P2Crypt.csproj">
       <Project>{e4d4f4bd-ae82-4484-a007-6c4b8d77e238}</Project>
       <Name>P2Crypt</Name>

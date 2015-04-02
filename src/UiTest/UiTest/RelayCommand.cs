@@ -7,10 +7,10 @@ namespace UiTest
 	{
 		#region Fields
 
-		readonly Action<T> _execute;
 		readonly Predicate<T> _canExecute;
+		readonly Action<T> _execute;
 
-		#endregion
+		#endregion Fields
 
 		#region Constructors
 
@@ -34,13 +34,26 @@ namespace UiTest
 			if (execute == null)
 				throw new ArgumentNullException("execute");
 
-		    this._execute = execute;
-		    this._canExecute = canExecute;
+			this._execute = execute;
+			this._canExecute = canExecute;
 		}
 
-		#endregion
+		#endregion Constructors
 
-		#region ICommand Members
+		#region Events
+
+		///<summary>
+		///Occurs when changes occur that affect whether or not the command should execute.
+		///</summary>
+		public event EventHandler CanExecuteChanged
+		{
+			add { CommandManager.RequerySuggested += value; }
+			remove { CommandManager.RequerySuggested -= value; }
+		}
+
+		#endregion Events
+
+		#region Methods
 
 		///<summary>
 		///Defines the method that determines whether the command can execute in its current state.
@@ -55,23 +68,14 @@ namespace UiTest
 		}
 
 		///<summary>
-		///Occurs when changes occur that affect whether or not the command should execute.
-		///</summary>
-		public event EventHandler CanExecuteChanged
-		{
-			add { CommandManager.RequerySuggested += value; }
-			remove { CommandManager.RequerySuggested -= value; }
-		}
-
-		///<summary>
 		///Defines the method to be called when the command is invoked.
 		///</summary>
 		///<param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to <see langword="null" />.</param>
 		public void Execute(object parameter)
 		{
-		    this._execute((T)parameter);
+			this._execute((T)parameter);
 		}
 
-		#endregion
+		#endregion Methods
 	}
 }
